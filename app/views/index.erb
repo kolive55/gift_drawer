@@ -3,21 +3,25 @@
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="javascript/application.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.js"></script>
   <title>Gift Drawer</title>
 </head>
 <body>
-
+  
+<div class = "container">
   <h1>Gift Drawer</h1>
   <form id="new-match" action="/users" method="post">
     <input id="person_name" type="text" placeholder= "Enter a name" name="name"></input>
     <button>Add</button>
   </form>
+</div>
 
-  <div>
+  <div class="main-content">
     <h2>Matches</h2>
     <ul id="matches"></ul>
-    <button>Match Us!</button>
   </div>
+
+  <button id="match_button">Match Us!</button>
 
 </bdy>
 </html>
