@@ -1,4 +1,4 @@
 class User < ActiveRecord::Base
-  has_a :match
-  validates :name, presences: true
+  has_one :match
+  validates :name, presence: true
 end
