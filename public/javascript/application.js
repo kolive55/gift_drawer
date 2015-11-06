@@ -8,6 +8,7 @@ $(function() {
     dataType: 'json'
   }).done(populateMatchList);
 
+  $('#match_button').hide();
   newMatchForm.on('submit', function (event){
     event.stopImmediatePropagation();
     $.ajax({
@@ -17,6 +18,7 @@ $(function() {
     })
     .done(addUsers)
     .done(appendMatch)
+    .done(showButton)
     .done(function (){
       newMatchForm[0].reset();
     });
@@ -39,6 +41,21 @@ $(function() {
       }
     });
   });
+
+
+// Button toggle functionality
+
+  $('#match_button').on('click', function(){
+    $(this).replaceWith('<button id="reset_button">Reset</button>')
+    $('#reset_button').on('click', function(){
+        $('ul').fadeOut(300);
+        $(this).fadeOut(300);
+    });
+  });
+
+    function showButton(){
+      $('#match_button').fadeIn('slow');
+    };
 
 // Returns randomized matches
 
