@@ -2,13 +2,15 @@ $(function() {
   var matchList = $('#matches');
   var newMatchForm = $('#new-match');
 
+  $('#match_button').hide();
+  $('#reset_button').hide();
+
   $.ajax({
     url: '/users',
     method: 'get',
     dataType: 'json'
   }).done(populateMatchList);
 
-  $('#match_button').hide();
   newMatchForm.on('submit', function (event){
     event.stopImmediatePropagation();
     $.ajax({
@@ -46,10 +48,12 @@ $(function() {
 // Button toggle functionality
 
   $('#match_button').on('click', function(){
-    $(this).replaceWith('<button id="reset_button">Reset</button>')
+    $('#reset_button').show(300)
+    $(this).hide();
     $('#reset_button').on('click', function(){
-        $('ul').fadeOut(300);
-        $(this).fadeOut(300);
+      $(this).hide();
+      $('#reset_button').fadeOut(300);
+      $('ul').empty();
     });
   });
 
